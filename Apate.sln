@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.757
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Apate", "Apate\Apate.vcxproj", "{6E3BFE5C-FC92-4329-87B6-AAA8F66F4641}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sandbox", "Sandbox\Sandbox.vcxproj", "{EC0FBA31-7270-4186-A9FB-89CC26193A22}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E3BFE5C-FC92-4329-87B6-AAA8F66F4641}.Debug|x64.ActiveCfg = Debug|x64
+		{6E3BFE5C-FC92-4329-87B6-AAA8F66F4641}.Debug|x64.Build.0 = Debug|x64
+		{6E3BFE5C-FC92-4329-87B6-AAA8F66F4641}.Release|x64.ActiveCfg = Release|x64
+		{6E3BFE5C-FC92-4329-87B6-AAA8F66F4641}.Release|x64.Build.0 = Release|x64
+		{EC0FBA31-7270-4186-A9FB-89CC26193A22}.Debug|x64.ActiveCfg = Debug|x64
+		{EC0FBA31-7270-4186-A9FB-89CC26193A22}.Debug|x64.Build.0 = Debug|x64
+		{EC0FBA31-7270-4186-A9FB-89CC26193A22}.Release|x64.ActiveCfg = Release|x64
+		{EC0FBA31-7270-4186-A9FB-89CC26193A22}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {41E6E2F8-29D6-481F-9F41-6B469E888DB2}
+	EndGlobalSection
+EndGlobal
