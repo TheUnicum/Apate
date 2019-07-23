@@ -1,0 +1,3 @@
+[submodule "Apate/vendor/spdlog"]
+	path = Apate/vendor/spdlog
+	url = https://github.com/gabime/spdlog
