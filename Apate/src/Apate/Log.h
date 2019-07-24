@@ -10,10 +10,14 @@ namespace Apate {
 	class APATE_API Log
 	{
 	public:
-		static void Init();
+		static void Init(spdlog::level::level_enum level=spdlog::level::trace);
 
 		inline static std::shared_ptr<spdlog::logger>& GetCoreLogger() { return s_CoreLogger; }
 		inline static std::shared_ptr<spdlog::logger>& GetClientLogger() { return s_ClientLogger; }
+
+		inline static void SetCoreLoggerLevel(spdlog::level::level_enum level) { s_CoreLogger->set_level(level); }
+		inline static void SetClientLoggerLevel(spdlog::level::level_enum level) { s_ClientLogger->set_level(level); }
+		inline static void SetLoggerLevel(spdlog::level::level_enum level) { s_CoreLogger->set_level(level); s_ClientLogger->set_level(level); }
 	private:
 		static std::shared_ptr<spdlog::logger> s_CoreLogger;
 		static std::shared_ptr<spdlog::logger> s_ClientLogger;

@@ -7,16 +7,15 @@ namespace Apate {
 	std::shared_ptr<spdlog::logger> Log::s_CoreLogger;
 	std::shared_ptr<spdlog::logger> Log::s_ClientLogger;
 
-	void Log::Init()
+	void Log::Init(spdlog::level::level_enum level)
 	{
-		//spdlog::set_pattern("[%H:%M:%S %z] [%n] [%^---%L---%$] [thread %t] %v");
 		spdlog::set_pattern("%^[%T] %n: %v%$");
 
 		s_CoreLogger = spdlog::stdout_color_mt("APATE");
-		s_CoreLogger->set_level(spdlog::level::trace);
+		s_CoreLogger->set_level(level);
 
 		s_ClientLogger = spdlog::stdout_color_mt("APP++");
-		s_ClientLogger->set_level(spdlog::level::trace);
+		s_ClientLogger->set_level(level);
 	}
 
 }

@@ -2,6 +2,10 @@
 
 // For use by Apate application
 
+// ----Config file ini reader---------
+#include "Apate/inih/INIReader.h"
+
+// -----Application-------------------
 #include "Apate/Application.h"
 #include "Apate/Log.h"
 
