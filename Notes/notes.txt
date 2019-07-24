@@ -1,0 +1,13 @@
+[premake]
+
+buildtarget and linktarget tokens are inconsistent #479
+
+cfg.buildtarget.abspath => bin/Debug/Yalla.Library.dll
+cfg.buildtarget.bundlepath => bin/Debug
+cfg.buildtarget.directory => d:\Users\Eyal\Projects\Code\Yalla\lua_build\bin\Debug
+cfg.buildtarget.relpath => bin/Debug/Yalla.Library.dll
+cfg.linktarget.abspath => bin/Debug/Yalla.Library.lib
+cfg.linktarget.bundlepath => bin/Debug
+cfg.linktarget.directory => bin/Debug
+cfg.linktarget.relpath => bin/Debug/Yalla.Library.lib
+file.abspath => d:\Users\Eyal\Projects\Code\Yalla\lua_build\Yalla.Library

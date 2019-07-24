@@ -44,7 +44,7 @@ namespace Apate {
 	#define AP_CORE_CRITICAL(...) ::Apate::Log::GetCoreLogger()->critical(__VA_ARGS__)
 
 	#define AP_TRACE(...)         ::Apate::Log::GetClientLogger()->trace(__VA_ARGS__)
-	#define AP_DEBUG(...)         ::Apate::Log::GetClientLogger()->debug(__VA_ARGS__)
+	#define AP_DEBUG_L(...)         ::Apate::Log::GetClientLogger()->debug(__VA_ARGS__)
 	#define AP_INFO(...)          ::Apate::Log::GetClientLogger()->info(__VA_ARGS__)
 	#define AP_WARN(...)          ::Apate::Log::GetClientLogger()->warn(__VA_ARGS__)
 	#define AP_ERROR(...)         ::Apate::Log::GetClientLogger()->error(__VA_ARGS__)
