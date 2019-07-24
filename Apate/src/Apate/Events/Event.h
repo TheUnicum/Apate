@@ -1,9 +1,7 @@
 #pragma once
 
+#include "APpch.h"
 #include "Apate/Core.h"
-
-#include <string>
-#include <functional>
 
 namespace Apate {
 

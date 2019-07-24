@@ -1,3 +1,4 @@
+#include "APpch.h"
 #include "Application.h"
 
 #include "Apate/Events/ApplicationEvent.h"

@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Apate {
 
 	class APATE_API WindowResizeEvent : public Event

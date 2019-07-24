@@ -34,6 +34,11 @@ project "Apate"
         "%{prj.name}/vendor/spdlog/include",
     }
 
+    pchheader "APpch.h"
+    pchsource "Apate/src/APpch.cpp"
+    filter "files:**.c"
+        flags { "NoPCH" }
+
     filter "system:windows"
         systemversion "latest"
 

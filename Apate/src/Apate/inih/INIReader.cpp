@@ -1,10 +1,13 @@
 // Read an INI file into easy-to-access name/value pairs.
 
+#include "APpch.h"
+
 #include <algorithm>
 #include <cctype>
 #include <cstdlib>
 #include "ini.h"
 #include "INIReader.h"
+
 using std::string;
 
 INIReader::INIReader(string filename)
