@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Core.h"
+#include "Events/Event.h"
 
 namespace Apate {
 
@@ -13,5 +14,6 @@ namespace Apate {
 		void Run();
 	};
 
+	// To be defined in CLIENT
 	Application* CreateApplication();
 }
