@@ -11,6 +11,12 @@ workspace "Apate"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Apate/vendor/GLFW/include"
+
+include "Apate/vendor/GLFW"
+
 project "Apate"
     location "Apate"
     kind "StaticLib"
@@ -28,10 +34,18 @@ project "Apate"
         "%{prj.name}/src/**.c",
     }
 
+    -- The contents of the %{} are run through loadstring()
     includedirs
     {
         "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include",
+        "%{IncludeDir.GLFW}",
+    }
+
+    links
+    {
+        "GLFW",
+        "opengl32.lib",
     }
 
     pchheader "APpch.h"
@@ -45,7 +59,7 @@ project "Apate"
         defines
         {
             "AP_PLATFORM_WINDOWS",
-            "AP_BUILD_DLL"
+            "AP_BUILD_DLL",
         }
 
     filter "configurations:Debug"
