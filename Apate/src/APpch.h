@@ -12,6 +12,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "Apate/Log.h"
+
 #ifdef AP_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif
