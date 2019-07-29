@@ -10,6 +10,8 @@
 #include "Apate/Layer.h"
 #include "Apate/Log.h"
 
+#include "Apate/ImGui/ImGuiLayer.h"
+
 // ---Entry Point---------------------
 #include "Apate/EntryPoint.h"
 // -----------------------------------
