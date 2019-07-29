@@ -14,8 +14,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Apate/vendor/GLFW/include"
+IncludeDir["Glad"] = "Apate/vendor/Glad/include"
 
 include "Apate/vendor/GLFW"
+include "Apate/vendor/Glad"
 
 project "Apate"
     location "Apate"
@@ -40,11 +42,13 @@ project "Apate"
         "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include",
         "%{IncludeDir.GLFW}",
+        "%{IncludeDir.Glad}",
     }
 
     links
     {
         "GLFW",
+        "Glad",
         "opengl32.lib",
     }
 
@@ -60,6 +64,7 @@ project "Apate"
         {
             "AP_PLATFORM_WINDOWS",
             "AP_BUILD_DLL",
+            "GLFW_INCLUDE_NONE",
         }
 
     filter "configurations:Debug"
