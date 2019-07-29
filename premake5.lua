@@ -15,9 +15,11 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "Apate/vendor/GLFW/include"
 IncludeDir["Glad"] = "Apate/vendor/Glad/include"
+IncludeDir["ImGui"] = "Apate/vendor/imgui"
 
 include "Apate/vendor/GLFW"
 include "Apate/vendor/Glad"
+include "Apate/vendor/imgui"
 
 project "Apate"
     location "Apate"
@@ -43,12 +45,14 @@ project "Apate"
         "%{prj.name}/vendor/spdlog/include",
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.Glad}",
+        "%{IncludeDir.ImGui}",
     }
 
     links
     {
         "GLFW",
         "Glad",
+        "ImGui",
         "opengl32.lib",
     }
 
