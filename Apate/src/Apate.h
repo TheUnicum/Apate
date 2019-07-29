@@ -7,6 +7,7 @@
 
 // -----Application-------------------
 #include "Apate/Application.h"
+#include "Apate/Layer.h"
 #include "Apate/Log.h"
 
 // ---Entry Point---------------------
