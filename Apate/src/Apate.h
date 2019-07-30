@@ -10,6 +10,10 @@
 #include "Apate/Layer.h"
 #include "Apate/Log.h"
 
+#include "Apate/Input.h"
+#include "Apate/KeyCodes.h"
+#include "Apate/MouseButtonCodes.h"
+
 #include "Apate/ImGui/ImGuiLayer.h"
 
 // ---Entry Point---------------------
