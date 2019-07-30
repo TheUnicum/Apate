@@ -16,6 +16,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Apate/vendor/GLFW/include"
 IncludeDir["Glad"] = "Apate/vendor/Glad/include"
 IncludeDir["ImGui"] = "Apate/vendor/imgui"
+IncludeDir["glm"] = "Apate/vendor/glm"
 
 include "Apate/vendor/GLFW"
 include "Apate/vendor/Glad"
@@ -36,6 +37,8 @@ project "Apate"
         "%{prj.name}/src/**.h",
         "%{prj.name}/src/**.cpp",
         "%{prj.name}/src/**.c",
+        "%{prj.name}/vendor/glm/glm/**.hpp",
+        "%{prj.name}/vendor/glm/glm/**.inl",
     }
 
     -- The contents of the %{} are run through loadstring()
@@ -46,6 +49,7 @@ project "Apate"
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.Glad}",
         "%{IncludeDir.ImGui}",
+        "%{IncludeDir.glm}",
     }
 
     links
@@ -107,6 +111,7 @@ project "Sandbox"
     {
         "Apate/vendor/spdlog/include",
         "Apate/src",
+        "%{IncludeDir.glm}",
     }
 
     links
