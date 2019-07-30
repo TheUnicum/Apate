@@ -19,7 +19,6 @@ namespace Apate {
 			: Title(title), Width(width), Height(height)
 		{
 		}
-
 	};
 
 	// Interface representation a desktop system based Window
@@ -39,6 +38,8 @@ namespace Apate {
 		virtual void SetEventCallback(const EventCallbackFn& callback) = 0;
 		virtual void SetVSync(bool enable) = 0;
 		virtual bool IsVSync() const = 0;
+
+		virtual void* GetNativeWindow() const = 0;
 
 		static Window* Create(const WindowProps& props = WindowProps());
 		
