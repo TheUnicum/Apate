@@ -7,6 +7,8 @@
 #include "Apate/Events/Event.h"
 #include "Apate/Events/ApplicationEvent.h"
 
+#include "Apate/ImGui/ImGuiLayer.h"
+
 namespace Apate {
 
 	class APATE_API Application
@@ -29,6 +31,7 @@ namespace Apate {
 		bool OnWindowClosed(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 	private:

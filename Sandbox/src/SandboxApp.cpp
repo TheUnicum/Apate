@@ -1,18 +1,26 @@
 #include "Apate.h"
 
+#include "imgui/imgui.h"
+
 class ExampleLayer : public Apate::Layer
 {
 public:
 	ExampleLayer()
 		: Layer("Example")
 	{
-
 	}
 
 	void OnUpdate() override
 	{
 		if (Apate::Input::IsKeyPressed(AP_KEY_TAB))
 			AP_TRACE("Tab key is pressed (poll)!");
+	}
+
+	virtual void OnImGuiRender() override
+	{
+		ImGui::Begin("Test");
+		ImGui::Text("Hello World!");
+		ImGui::End();
 	}
 
 	void OnEvent(Apate::Event& event) override
@@ -34,7 +42,6 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new Apate::ImGuiLayer());
 	}
 
 	~Sandbox()

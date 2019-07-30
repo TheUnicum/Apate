@@ -111,6 +111,7 @@ project "Sandbox"
     {
         "Apate/vendor/spdlog/include",
         "Apate/src",
+        "Apate/vendor",
         "%{IncludeDir.glm}",
     }
 
