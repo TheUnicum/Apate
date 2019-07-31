@@ -41,6 +41,11 @@ project "Apate"
         "%{prj.name}/vendor/glm/glm/**.inl",
     }
 
+    defines
+    {
+        "_CRT_SECURE_NO_WARNINGS",
+    }
+
     -- The contents of the %{} are run through loadstring()
     includedirs
     {
