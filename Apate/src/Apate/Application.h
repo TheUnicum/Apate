@@ -9,6 +9,8 @@
 
 #include "Apate/ImGui/ImGuiLayer.h"
 
+#include "Apate/Renderer/Shader.h"
+
 namespace Apate {
 
 	class APATE_API Application
@@ -36,6 +38,7 @@ namespace Apate {
 		LayerStack m_LayerStack;
 
 		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+		std::unique_ptr<Shader> m_Shader;
 	private:
 		static Application* s_Instance;
 	};
