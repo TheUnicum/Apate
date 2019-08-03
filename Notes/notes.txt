@@ -11,3 +11,29 @@ cfg.linktarget.bundlepath => bin/Debug
 cfg.linktarget.directory => bin/Debug
 cfg.linktarget.relpath => bin/Debug/Yalla.Library.lib
 file.abspath => d:\Users\Eyal\Projects\Code\Yalla\lua_build\Yalla.Library
+
+
+[]
+Case old
+------
+BufferLayout(const std::vector<BufferElement>& element)
+    : m_Elements(element)
+
+initializer_list -> BufferElement -> std::vector<BufferElement>
+
+
+------
+BufferLayout(const std::initializer_list<BufferElement>& element)
+    : m_Elements(element)
+
+initializer_list
+
+
+------
+[virtual void SetLayout(const BufferLayout& layout]
+
+squareVB->SetLayout({
+        { ShaderDataType::Float3, "a_Position"}
+    });
+
+initializer_list -> BufferLayout
