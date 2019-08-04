@@ -16,6 +16,17 @@
 
 #include "Apate/ImGui/ImGuiLayer.h"
 
+// ---Renderer-----------------------
+#include "Apate/Renderer/Renderer.h"
+#include "Apate/Renderer/RenderCommand.h"
+
+#include "Apate/Renderer/Buffer.h"
+#include "Apate/Renderer/Shader.h"
+#include "Apate/Renderer/VertexArray.h"
+
+#include "Apate/Renderer/OrthographicCamera.h"
+// -----------------------------------
+
 // ---Entry Point---------------------
 #include "Apate/EntryPoint.h"
 // -----------------------------------

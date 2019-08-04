@@ -9,15 +9,9 @@
 
 #include "Apate/ImGui/ImGuiLayer.h"
 
-#include "Apate/Renderer/Shader.h"
-#include "Apate/Renderer/Buffer.h"
-#include "Apate/Renderer/VertexArray.h"
-
-#include "Apate/Renderer/OrthographicCamera.h"
-
 namespace Apate {
 
-	class APATE_API Application
+	class Application
 	{
 	public:
 		Application();
@@ -40,14 +34,6 @@ namespace Apate {
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
-
-		std::shared_ptr<Shader> m_Shader;
-		std::shared_ptr<VertexArray> m_VertexArray;
-
-		std::shared_ptr<Shader> m_BlueShader;
-		std::shared_ptr<VertexArray> m_SquareVA;
-
-		OrthographicCamera m_Camera;
 	private:
 		static Application* s_Instance;
 	};
