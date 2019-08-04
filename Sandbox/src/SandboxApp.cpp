@@ -119,22 +119,24 @@ public:
 		m_BlueShader.reset(new Apate::Shader(BlueShaderVertexSrc, BlueShaderFragmentSrc));
 	}
 
-	void OnUpdate() override
+	void OnUpdate(Apate::Timestep ts) override
 	{
+		AP_TRACE("Delta time: {0}s ({1}ms)", ts.GetSecond(), ts.GetMillisecond());
+
 		if (Apate::Input::IsKeyPressed(AP_KEY_LEFT))
-			m_CameraPosition.x -= m_CameraMoveSpeed;
+			m_CameraPosition.x -= m_CameraMoveSpeed * ts;
 		else if (Apate::Input::IsKeyPressed(AP_KEY_RIGHT))
-			m_CameraPosition.x += m_CameraMoveSpeed;
+			m_CameraPosition.x += m_CameraMoveSpeed * ts;
 
 		if (Apate::Input::IsKeyPressed(AP_KEY_UP))
-			m_CameraPosition.y += m_CameraMoveSpeed;
+			m_CameraPosition.y += m_CameraMoveSpeed * ts;
 		else if (Apate::Input::IsKeyPressed(AP_KEY_DOWN))
-			m_CameraPosition.y -= m_CameraMoveSpeed;
+			m_CameraPosition.y -= m_CameraMoveSpeed * ts;
 
 		if (Apate::Input::IsKeyPressed(AP_KEY_A))
-			m_CameraRotation += m_CameraRotationSpeed;
+			m_CameraRotation += m_CameraRotationSpeed * ts;
 		else if (Apate::Input::IsKeyPressed(AP_KEY_D))
-			m_CameraRotation -= m_CameraRotationSpeed;
+			m_CameraRotation -= m_CameraRotationSpeed * ts;
 
 		Apate::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1.0f });
 		Apate::RenderCommand::Clear();
@@ -167,10 +169,10 @@ private:
 
 	Apate::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
-	float m_CameraMoveSpeed = 0.1f;
+	float m_CameraMoveSpeed = 5.0f;
 
 	float m_CameraRotation = 0.0f;
-	float m_CameraRotationSpeed = 2.0f;
+	float m_CameraRotationSpeed = 180.0f;
 };
 
 class Sandbox : public Apate::Application

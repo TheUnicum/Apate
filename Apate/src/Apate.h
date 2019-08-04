@@ -10,6 +10,8 @@
 #include "Apate/Layer.h"
 #include "Apate/Log.h"
 
+#include "Apate/Core/Timestep.h"
+
 #include "Apate/Input.h"
 #include "Apate/KeyCodes.h"
 #include "Apate/MouseButtonCodes.h"

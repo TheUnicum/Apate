@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Apate/Core.h"
+#include "Apate/Core/Timestep.h"
 #include "Apate/Events/Event.h"
 
 namespace Apate {
@@ -13,7 +14,7 @@ namespace Apate {
 
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(Timestep ts) {}
 		virtual void OnImGuiRender() {}
 		virtual void OnEvent(Event& event) {}
 
