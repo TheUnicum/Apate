@@ -13,6 +13,8 @@
 #include "Apate/Renderer/Buffer.h"
 #include "Apate/Renderer/VertexArray.h"
 
+#include "Apate/Renderer/OrthographicCamera.h"
+
 namespace Apate {
 
 	class APATE_API Application
@@ -44,6 +46,8 @@ namespace Apate {
 
 		std::shared_ptr<Shader> m_BlueShader;
 		std::shared_ptr<VertexArray> m_SquareVA;
+
+		OrthographicCamera m_Camera;
 	private:
 		static Application* s_Instance;
 	};
