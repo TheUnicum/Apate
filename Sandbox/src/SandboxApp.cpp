@@ -1,8 +1,11 @@
 #include "Apate.h"
 
+#include "Platform/OpenGL/OpenGLShader.h"
+
 #include "imgui/imgui.h"
 
 #include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 class ExampleLayer : public Apate::Layer
 {
@@ -88,7 +91,7 @@ public:
 				}
 		)";
 
-		m_Shader.reset(new Apate::Shader(vertexSrc, FragmentSrc));
+		m_Shader.reset(Apate::Shader::Create(vertexSrc, FragmentSrc));
 
 		std::string flatColorShaderVertexSrc = R"(
 				#version 330 core
@@ -114,15 +117,15 @@ public:
 
 				in vec3 v_Position;
 
-				uniform vec4 u_Color;
+				uniform vec3 u_Color;
 
 				void main()
 				{
-					color = u_Color;
+					color = vec4(u_Color, 1.0f);
 				}
 		)";
 
-		m_FlatColorShader.reset(new Apate::Shader(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+		m_FlatColorShader.reset(Apate::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
 	}
 
 	void OnUpdate(Apate::Timestep ts) override
@@ -150,17 +153,10 @@ public:
 
 		Apate::Renderer::BeginScene(m_Camera);
 
-		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
+		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f)); // calculate only one time
 
-		glm::vec4 redColor(0.8f, 0.2f, 0.3f, 1.0f);
-		glm::vec4 blueColor(0.2f, 0.3f, 0.8f, 1.0f);
-
-		/*Apate::MaterialRef material = new Apate::Material(m_FlatColorShader);
-		Apate::MaterialInstanceRef mi = new Apate::Material(material)
-
-		mi->SetValue("u_Color", redColor);
-		mi->SetTexture("u_AlbedoMap", texture);
-		squareMesh->SetMaterial(mi);*/
+		std::dynamic_pointer_cast<Apate::OpenGLShader>(m_FlatColorShader)->Bind();
+		std::dynamic_pointer_cast<Apate::OpenGLShader>(m_FlatColorShader)->UploadUniformFloat3("u_Color", m_SquareColor);
 
 		for (int y = 0; y < 20; y++)
 		{
@@ -168,13 +164,6 @@ public:
 			{
 				glm::vec3 pos(i * 0.11, y * 0.11, 0.0f);
 				glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
-				if (i % 2 == 0)
-					m_FlatColorShader->UploadUniformFloat4("u_Color", redColor);
-				else
-					m_FlatColorShader->UploadUniformFloat4("u_Color", blueColor);
-
-				//Apate::Renderer::Submit(mi, m_SquareVA, transform);
-
 				Apate::Renderer::Submit(m_FlatColorShader, m_SquareVA, transform);
 			}
 		}
@@ -186,7 +175,9 @@ public:
 
 	virtual void OnImGuiRender() override
 	{
-
+		ImGui::Begin("Settings");
+		ImGui::ColorEdit3("Square Color", glm::value_ptr(m_SquareColor));
+		ImGui::End();
 	}
 
 	void OnEvent(Apate::Event& event) override
@@ -205,6 +196,8 @@ private:
 
 	float m_CameraRotation = 0.0f;
 	float m_CameraRotationSpeed = 180.0f;
+
+	glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };
 };
 
 class Sandbox : public Apate::Application
